@@ -60,28 +60,29 @@ while len(Matrix) != 2:
 
     Mt1 = []
     Mt1.append(0)
-    for col in range(int(Number)):
-        if col != Merging[0] and col != Merging[1]:
-            Mt1.append(int((Matrix[Merging[0]][col] + Matrix[Merging[1]][col]) / 2))
+    for i in range(0, len(Merging) - 1, 2):
+        for col in range(int(Number)):
+            if col != Merging[i] and col != Merging[i+1]:
+                Mt1.append((Matrix[Merging[i]][col] + Matrix[Merging[i+1]][col]) / 2)
 
-    for rows in range(0, int(Number)):
-        if rows == Merging[0]:
-            M.append(Mt1)
-            continue
-        elif rows == Merging[1]:
-            continue
-        Mt = []
-        for col in range(0, int(Number)):
-
-            if col == Merging[0]:
-                Mt.append(Mt1[rows - 1])
-            elif col == Merging[1]:
+        for rows in range(0, int(Number)):
+            if rows == Merging[i]:
+                M.append(Mt1)
                 continue
-            elif col == rows:
-                Mt.append(0)
-            else:
-                Mt.append(Matrix[rows][col])
-        M.append(Mt)
+            elif rows == Merging[i+1]:
+                continue
+            Mt = []
+            for col in range(0, int(Number)):
+
+                if col == Merging[i]:
+                    Mt.append(Mt1[rows - 1])
+                elif col == Merging[i+1]:
+                    continue
+                elif col == rows:
+                    Mt.append(0)
+                else:
+                    Mt.append(Matrix[rows][col])
+            M.append(Mt)
 
     print("The Distance Matrix ")
     print("  ", *SeqNames)
