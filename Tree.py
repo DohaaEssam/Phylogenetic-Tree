@@ -1,4 +1,4 @@
-#Doha Essam Mohamed , Norhan Mohamed Abdelaziz , karma amr abelmonsef, Rawan Mohamed Elsayed, Ali Ahmed Hassan,Taha Mohamed Taha
+
 from typing import Match
 print("Please Enter The Number of DNA Sequences ")
 Number = input()
